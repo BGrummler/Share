@@ -139,9 +139,10 @@ def f_blackjack():
                     break
                 break
             if d_hands[1][0][1] == 2105:
+                v_player_turn = False
                 f_print_table(v_player_turn,v_turn,d_ascii_karten)
                 print('Player has Blackjack')
-                v_game = 'Blackjack'
+                v_game = 'blackjack'
                 break
             if d_hands[v_turn][0][1] >= 2200: # Bust
                 if d_hands[v_turn][0][1] % 100 == 5: # ist ein Ass mit wert 1105 in der bust hand ?  ///    Ass + 7 + 5 = 23      /     2305 % 100 == 5
@@ -232,7 +233,7 @@ while True:
     v_result = f_blackjack()
 
     if v_result == 'blackjack':
-        l_money[0] = l_money[0] + 1.5 * v_i_bet
+        l_money[0] = int(l_money[0] + 1.5 * v_i_bet)
     elif v_result == 'win':
         l_money[0] = l_money[0] +  v_i_bet
     elif v_result == 'loose':
