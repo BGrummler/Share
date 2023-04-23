@@ -128,6 +128,7 @@ def f_blackjack():
         else:
 
             if d_hands[0][0][1] == 2105:
+                v_player_turn = False
                 f_print_table(v_player_turn,v_turn,d_ascii_karten)
                 print('Dealer has Blackjack')
                 v_game = 'loose'
