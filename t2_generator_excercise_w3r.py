@@ -49,14 +49,12 @@ def fib_gen(n):
 
 print([i for i in fib_gen(10)])
 
-
 new_print() #5. Write a Python program to implement a generator function that generates all permutations of a given list of elements.
 
 def permutations_gen(iter_arg):
-    permutations = set()
-    for elem in iter_arg:
-        permutations.add(elem)
-    return permutations
+    for _ in range(len(iter_arg)):
+        for i in range(1,len(iter_arg)):
+            iter_arg[-(i)], iter_arg[-(i+1)] = iter_arg[-(i+1)], iter_arg[-(i)] 
+            yield iter_arg[:]
 
-print(permutations_gen([1,2,3]))
-#print([i for i in permutations_gen([1,2,3])])
+print([elem for elem in permutations_gen([1,2,3])])
